@@ -7,29 +7,31 @@ exports = (typeof window === 'undefined') ? global : window;
  */
 
 exports.bestPracticesAnswers = {
-  globals : function() {
-    myObject = {
-      name : 'Jory'
-    };
+    globals: function () {
+        'use strict';
+        return false;
+    },
 
-    return myObject;
-  },
+    functions: function (flag) {
+        'use strict';
 
-  functions : function(flag) {
-    if (flag) {
-      function getValue() { return 'a'; }
-    } else {
-      function getValue() { return 'b'; }
+        var getValue = flag ?
+            function getValueA() {
+            return 'a';
+        } : function getValueB() {
+            return 'b';
+        };
+
+        return getValue();
+    },
+
+    parseInt: function (num) {
+        'use strict';
+        return parseInt(num, 10);
+    },
+
+    identity: function (val1, val2) {
+        'use strict';
+        return val1 === val2;
     }
-
-    return getValue();
-  },
-
-  parseInt : function(num) {
-    return parseInt(num);
-  },
-
-  identity : function(val1, val2) {
-
-  }
 };
