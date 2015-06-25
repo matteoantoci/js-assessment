@@ -1,27 +1,33 @@
 {
-  "node" : true,
-  "browser" : true,
+  "browser": true,
 
-  "boss" : false,
-  "curly": false,
-  "debug": false,
-  "devel": false,
+  "jquery": true,
+
+  "node": true,
+
+  "esnext": true,
+
+  "camelcase": true,
+
   "eqeqeq": true,
-  "evil": true,
-  "forin": false,
-  "immed": true,
-  "laxbreak": false,
+
+  "indent": 2,
+
+  "latedef": true,
+
+  "maxlen": 80,
+
   "newcap": true,
-  "noarg": true,
-  "noempty": false,
-  "nonew": false,
-  "nomen": false,
-  "plusplus": false,
-  "regexp": false,
-  "undef": true,
-  "sub": true,
-  "strict": false,
+
   "quotmark": "single",
+
+  "strict": true,
+
+  "undef": true,
+
+  "unused": true,
+
+  "eqnull": true,
 
   "predef": [
     "describe",
@@ -39,6 +45,7 @@
     "numbersAnswers",
     "objectsAnswers",
     "recursionAnswers",
-    "regexAnswers"
+    "regexAnswers",
+    "_"
   ]
 }
