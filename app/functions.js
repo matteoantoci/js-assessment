@@ -39,29 +39,27 @@ exports.functionsAnswers = {
         }, 0);
     },
 
-    _toArray: function(list){
+    _toArray: function(list, skip){
         'use strict';
-        return Array.prototype.map.call(list, function(current){
+        var args = Array.prototype.map.call(list, function(current){
             return current;
         });
+        return skip ? args.slice(skip) : args;
     },
 
-    callIt: function () {
+    callIt: function (fn) {
         'use strict';
-        var args = this._toArray(arguments);
-        var fn = args.shift();
+        var args = this._toArray(arguments, 1);
         return fn.apply(this, args);
     },
 
-    partialUsingArguments: function () {
+    partialUsingArguments: function (fn) {
         'use strict';
-        var self = this;
-        var boundArgs = this._toArray(arguments);
-        var fn = boundArgs.shift();
+        var boundArgs = this._toArray(arguments, 1);
         return function(){
-            var args = boundArgs.concat(self._toArray(arguments));
+            var args = boundArgs.concat(this._toArray(arguments));
             return fn.apply(this, args);
-        };
+        }.bind(this);
     },
 
     curryIt: function (fn) {
